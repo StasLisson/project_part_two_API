@@ -1,0 +1,11 @@
+{
+    "status_code": 200,
+    "cookies": {},
+    "body": {
+        "_id": "693212acecd79700159c09fb",
+        "firstName": "Stas Updated",
+        "lastName": "Original",
+        "email": "user_5e3af246-cb92-4163-9444-1008dc60418f@test.com",
+        "__v": 2
+    }
+}

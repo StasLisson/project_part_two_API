@@ -1,0 +1,27 @@
+{
+    "status_code": 200,
+    "cookies": {},
+    "body": [
+        {
+            "_id": "693212a7ecd79700159c09f1",
+            "firstName": "Bulk0",
+            "lastName": "Test",
+            "owner": "693212a3ecd79700159c09ed",
+            "__v": 0
+        },
+        {
+            "_id": "693212a8c13ec70015e82bf8",
+            "firstName": "Bulk1",
+            "lastName": "Test",
+            "owner": "693212a3ecd79700159c09ed",
+            "__v": 0
+        },
+        {
+            "_id": "693212a9ecd79700159c09f7",
+            "firstName": "Bulk2",
+            "lastName": "Test",
+            "owner": "693212a3ecd79700159c09ed",
+            "__v": 0
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "status_code": 200,
+    "cookies": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTI5OWMxM2VjNzAwMTVlODJiY2YiLCJpYXQiOjE3NjQ4ODkyNDN9.rE93ZnC_lFBuMQxy6F3-BzMeYaLgZvoehnmk-agMISc"
+    },
+    "body": {
+        "user": {
+            "_id": "69321299c13ec70015e82bcf",
+            "firstName": "Contact",
+            "lastName": "Tester",
+            "email": "user_ee729da7-2a02-4c9e-90e1-bdf8c930b6c3@test.com",
+            "__v": 2
+        },
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTI5OWMxM2VjNzAwMTVlODJiY2YiLCJpYXQiOjE3NjQ4ODkyNDN9.rE93ZnC_lFBuMQxy6F3-BzMeYaLgZvoehnmk-agMISc"
+    }
+}

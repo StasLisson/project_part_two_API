@@ -5,15 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0649fe8f-002c-4bc2-a085-5577e88d29ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/logic/api_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_complex_flows.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_contact_functional.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_negative.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_users_managment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project_part_two_API.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project_part_two_API.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_contacts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_system.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/contact_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/contact_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/user_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/user_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/0672007f-2060-49e4-97d5-d6c3482f8716-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/0f165427-d547-42af-873c-c9805f048a47-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/181926bb-a1c8-4c67-bacf-3fcc788e4553-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/1993e393-9385-4d7c-8e6f-9c6f09e2c3de-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/21795476-8f0b-42e3-a0ea-efef619e1662-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/21be8e08-777a-4f4b-b9b9-3d15d79c6ef2-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/2cee0846-8cad-4e2b-99ad-3bf739ffed9a-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/2fbd32ba-8088-48ab-b044-07f3d9359a9a-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/34a1ad0e-285e-4136-8ef1-594941ce01de-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/3d3d7d0c-1887-4564-b6e3-caf50f8337c4-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/4eeb6063-06db-4c7f-bf62-321005703390-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/50eab1c0-647c-48ed-8299-c1c6677fd443-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/5de435e0-9b93-4b86-b04f-948c60d32cd0-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/5e648628-74c8-48cb-af6d-ab1705c06b59-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/7057dd3c-8a7e-4d9c-8876-135ba3767c62-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/7826edda-2bd3-4cd8-8c1f-c9aa97c5bc3a-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/7868bc7d-4925-4ff2-aed2-073e8c97242e-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/841cacbc-41fe-442e-bed5-e6a9ca2b1e2d-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/89ae271a-150e-4ec3-aba1-66bc7c16da70-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/8b96dc59-2814-4a4e-9265-39b618c1b12a-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/8c9abc31-8d2b-4949-a94a-240e3cc12565-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/94e4e453-238a-4d92-9112-9ce92f717ccb-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/95e240be-3f5d-44e6-93cc-f23ce31bb005-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/997ed047-6ceb-4c3e-a55a-1427b8d99fcf-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/9fb39c6c-588e-4bc7-beb4-2d4c2bc42aa1-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/ab49ed30-5a14-4b64-9dcd-8ee0b46fde21-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/ae751365-d89b-4862-a88a-6d3b81776aa9-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/b08aa534-30bb-423b-996e-970874a2e83d-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/b34c01c3-27b7-4f00-9313-98f22031e4b5-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/b414c841-ddb9-4f56-996b-532a0928bab6-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/b9fe9b3d-0c3b-4c9d-969c-d0a5a6f1cbca-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/c7935788-5f42-45c2-a359-d4862f955c15-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/cbb871dd-7d0f-4a06-933e-40e50c05b26f-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/cd1ca180-daa4-438a-a757-d339c3b0afaf-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/cf712b71-2ce4-4b7e-b6bf-e039bdcc4153-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/d0661c0a-a7a5-45f2-aafa-c42a6ddd9086-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/d26865c4-9fb0-43da-b13b-c4cc47b66bcd-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/f6d18afb-4192-4bb5-83e6-66e7b967187e-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure-results/f76952f6-3cf0-47f6-b2f4-c2c66fba2545-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/base_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/infra/base_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_complex_flows.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_contact_functional.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_negative.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_users_managment.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,23 +97,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for tests.test_complex_flows.TestComplexFlows.executor": "Run",
-    "Python tests.Python tests for tests.test_contact_functional.TestContactsFunctional.executor": "Run",
-    "Python tests.Python tests for tests.test_contasts.TestContacts.executor": "Run",
-    "Python tests.Python tests for tests.test_negative.TestNegative.executor": "Run",
-    "Python tests.Python tests for tests.test_users_managment.TestUsersManagement.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "phase-3--test-time",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/GitHub/project_part_two_API"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for tests.test_complex_flows.TestComplexFlows.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_contact_functional.TestContactsFunctional.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_contacts.TestContacts.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_contasts.TestContacts.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_negative.TestNegative.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_system.TestSystem.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_users_managment.TestUsersManagement.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;phase-4-rejects-and-documentation(may-be-paralle)&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/GitHub/project_part_two_API&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.test_users_managment.TestUsersManagement">
-    <configuration name="Python tests for tests.test_complex_flows.TestComplexFlows" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_contacts.TestContacts">
+    <configuration name="Python tests for tests.test_contacts.TestContacts" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="project_part_two_API" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,22 +128,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_complex_flows.TestComplexFlows&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.test_contact_functional.TestContactsFunctional" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="project_part_two_API" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_contact_functional.TestContactsFunctional&quot;" />
+      <option name="_new_target" value="&quot;tests.test_contacts.TestContacts&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -134,6 +162,21 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for tests.test_system.TestSystem" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="project_part_two_API" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_system.TestSystem&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for tests.test_users_managment.TestUsersManagement" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="project_part_two_API" />
       <option name="ENV_FILES" value="" />
@@ -151,10 +194,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for tests.test_contacts.TestContacts" />
+        <item itemvalue="Python tests.Python tests for tests.test_system.TestSystem" />
         <item itemvalue="Python tests.Python tests for tests.test_users_managment.TestUsersManagement" />
         <item itemvalue="Python tests.Python tests for tests.test_negative.TestNegative" />
-        <item itemvalue="Python tests.Python tests for tests.test_contact_functional.TestContactsFunctional" />
-        <item itemvalue="Python tests.Python tests for tests.test_complex_flows.TestComplexFlows" />
         <item itemvalue="Python tests.Python tests for tests.test_contasts.TestContacts" />
       </list>
     </recent_temporary>

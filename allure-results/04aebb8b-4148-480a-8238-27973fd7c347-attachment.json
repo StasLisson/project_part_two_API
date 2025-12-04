@@ -1,0 +1,25 @@
+{
+    "status_code": 400,
+    "cookies": {},
+    "body": {
+        "errors": {
+            "birthdate": {
+                "name": "ValidatorError",
+                "message": "Birthdate is invalid",
+                "properties": {
+                    "message": "Birthdate is invalid",
+                    "type": "user defined",
+                    "path": "birthdate",
+                    "value": "9999-99-99",
+                    "reason": {}
+                },
+                "kind": "user defined",
+                "path": "birthdate",
+                "value": "9999-99-99",
+                "reason": {}
+            }
+        },
+        "_message": "Contact validation failed",
+        "message": "Contact validation failed: birthdate: Birthdate is invalid"
+    }
+}

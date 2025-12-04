@@ -1,0 +1,8 @@
+{
+    "method": "PATCH",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/contacts/693212a3c13ec70015e82bed",
+    "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTJhMGVjZDc5NzAwMTU5YzA5ZTciLCJpYXQiOjE3NjQ4ODkyNTB9.sBUBgHiSpcITqEV_lZx3CIcX9LT7UmuItBXEJ19IUSs"
+    },
+    "payload": {}
+}

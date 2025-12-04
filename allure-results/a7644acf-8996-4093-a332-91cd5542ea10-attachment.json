@@ -1,0 +1,32 @@
+{
+    "status_code": 400,
+    "cookies": {},
+    "body": {
+        "errors": {
+            "lastName": {
+                "name": "ValidatorError",
+                "message": "Path `lastName` is required.",
+                "properties": {
+                    "message": "Path `lastName` is required.",
+                    "type": "required",
+                    "path": "lastName"
+                },
+                "kind": "required",
+                "path": "lastName"
+            },
+            "firstName": {
+                "name": "ValidatorError",
+                "message": "Path `firstName` is required.",
+                "properties": {
+                    "message": "Path `firstName` is required.",
+                    "type": "required",
+                    "path": "firstName"
+                },
+                "kind": "required",
+                "path": "firstName"
+            }
+        },
+        "_message": "Contact validation failed",
+        "message": "Contact validation failed: lastName: Path `lastName` is required., firstName: Path `firstName` is required."
+    }
+}

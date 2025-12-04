@@ -1,0 +1,20 @@
+{
+    "status_code": 200,
+    "cookies": {},
+    "body": {
+        "_id": "69321296ecd79700159c09da",
+        "firstName": "New",
+        "lastName": "Last",
+        "owner": "69321292c13ec70015e82bbe",
+        "__v": 0,
+        "birthdate": null,
+        "city": null,
+        "country": null,
+        "email": null,
+        "phone": null,
+        "postalCode": null,
+        "stateProvince": null,
+        "street1": null,
+        "street2": null
+    }
+}

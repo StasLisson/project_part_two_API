@@ -1,0 +1,9 @@
+{
+    "method": "POST",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/users/login",
+    "headers": null,
+    "payload": {
+        "email": "user_932c9857-436e-4c06-a6d3-0efa988ff8f7@test.com",
+        "password": "Password123!"
+    }
+}

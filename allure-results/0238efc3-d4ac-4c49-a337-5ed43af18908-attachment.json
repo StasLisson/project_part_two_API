@@ -1,0 +1,8 @@
+{
+    "method": "GET",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/contacts",
+    "headers": {
+        "Authorization": "Bearer "
+    },
+    "payload": null
+}

@@ -1,0 +1,11 @@
+{
+    "method": "POST",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/users",
+    "headers": null,
+    "payload": {
+        "firstName": "Stas",
+        "lastName": "Lisson",
+        "email": "user_0507385a-92be-4e33-92c3-9048c5664a31@test.com",
+        "password": "Password123!"
+    }
+}
