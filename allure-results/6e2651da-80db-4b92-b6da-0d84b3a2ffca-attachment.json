@@ -1,0 +1,11 @@
+{
+    "status_code": 201,
+    "cookies": {},
+    "body": {
+        "_id": "69321296c13ec70015e82bcb",
+        "firstName": "C1",
+        "lastName": "List",
+        "owner": "69321292c13ec70015e82bbc",
+        "__v": 0
+    }
+}

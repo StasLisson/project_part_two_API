@@ -1,0 +1,24 @@
+{
+    "status_code": 400,
+    "cookies": {},
+    "body": {
+        "errors": {
+            "password": {
+                "name": "ValidatorError",
+                "message": "Path `password` (`123`) is shorter than the minimum allowed length (7).",
+                "properties": {
+                    "message": "Path `password` (`123`) is shorter than the minimum allowed length (7).",
+                    "type": "minlength",
+                    "minlength": 7,
+                    "path": "password",
+                    "value": "123"
+                },
+                "kind": "minlength",
+                "path": "password",
+                "value": "123"
+            }
+        },
+        "_message": "User validation failed",
+        "message": "User validation failed: password: Path `password` (`123`) is shorter than the minimum allowed length (7)."
+    }
+}

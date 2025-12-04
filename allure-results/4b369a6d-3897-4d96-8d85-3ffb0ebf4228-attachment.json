@@ -1,0 +1,10 @@
+{
+    "method": "PATCH",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/contacts/60f1b5b5b5b5b5b5b5b5b5b5",
+    "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTI5OWMxM2VjNzAwMTVlODJiZDAiLCJpYXQiOjE3NjQ4ODkyNDN9.XzwhDGMjc5zH5vySxrEObi9eZcbUPCzHcayzARa6ab0"
+    },
+    "payload": {
+        "firstName": "Ghost"
+    }
+}

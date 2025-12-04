@@ -1,0 +1,7 @@
+{
+    "status_code": 401,
+    "cookies": {},
+    "body": {
+        "error": "Please authenticate."
+    }
+}

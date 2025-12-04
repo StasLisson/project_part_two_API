@@ -1,0 +1,8 @@
+{
+    "method": "POST",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/users/logout",
+    "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTJiM2MxM2VjNzAwMTVlODJjMDUiLCJpYXQiOjE3NjQ4ODkyNjh9.foL1pV6KD0I8qBQH-D74dtn3He4IiFQiXDvn-2ioPOQ"
+    },
+    "payload": null
+}

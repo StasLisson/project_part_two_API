@@ -1,0 +1,13 @@
+{
+    "status_code": 201,
+    "cookies": {},
+    "body": {
+        "_id": "6932129bc13ec70015e82bdb",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "j@d.com",
+        "city": "Eilat",
+        "owner": "69321299c13ec70015e82bcd",
+        "__v": 0
+    }
+}

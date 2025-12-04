@@ -1,0 +1,8 @@
+{
+    "method": "DELETE",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/users/me",
+    "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTJhMGMxM2VjNzAwMTVlODJiZTYiLCJpYXQiOjE3NjQ4ODkyNTB9.U24HfT_Gm2D7HBajlONeokUs1vhbOmN3u9g3pyWopto"
+    },
+    "payload": null
+}

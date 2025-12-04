@@ -1,0 +1,8 @@
+{
+    "method": "GET",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/users/me",
+    "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTJhZWVjZDc5NzAwMTU5YzBhMDAiLCJpYXQiOjE3NjQ4ODkyNjN9.crwg9aztJP5RPAl53n0i2eyrdo0Y6U7Fv1iAecL2lo8"
+    },
+    "payload": null
+}

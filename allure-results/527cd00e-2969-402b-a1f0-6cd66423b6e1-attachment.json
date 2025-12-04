@@ -1,0 +1,13 @@
+{
+    "method": "POST",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/contacts",
+    "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTI5OWMxM2VjNzAwMTVlODJiY2QiLCJpYXQiOjE3NjQ4ODkyNDJ9.iP9aRY0Nr_IoIGbsURWVFAl8aPZQk6brer-SRMwyyQ4"
+    },
+    "payload": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "j@d.com",
+        "city": "Eilat"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "status_code": 200,
+    "cookies": {},
+    "body": {
+        "_id": "6932129eecd79700159c09e5",
+        "firstName": "Patch",
+        "lastName": "Me",
+        "owner": "6932129bc13ec70015e82bd7",
+        "__v": 0,
+        "email": "new@mail.com"
+    }
+}

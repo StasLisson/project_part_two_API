@@ -1,0 +1,11 @@
+{
+    "method": "POST",
+    "url": "https://thinking-tester-contact-list.herokuapp.com/contacts",
+    "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTMyMTI5ZWMxM2VjNzAwMTVlODJiZGUiLCJpYXQiOjE3NjQ4ODkyNDh9.zgxSAf7z8uwJBuX0jCvj6DKn7FQ4qi3spkM-wpDCW3E"
+    },
+    "payload": {
+        "firstName": "!@#",
+        "lastName": "Chars"
+    }
+}
