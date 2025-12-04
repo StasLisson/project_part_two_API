@@ -42,7 +42,7 @@ class ContactAPI(BaseAPI):
     def update_contact_put(self, token, contact_id, first_name, last_name,
                            email, phone, birthdate, street1, street2,
                            city, state_province, postal_code, country):
-        payload = {
+        raw_payload = {
             "firstName": first_name,
             "lastName": last_name,
             "email": email,
@@ -55,9 +55,13 @@ class ContactAPI(BaseAPI):
             "postalCode": postal_code,
             "country": country
         }
+
+        # --- התיקון הקריטי: סינון שדות שהם None ---
+        # אנחנו משתמשים ב-Utils כדי לשלוח רק את מה שבאמת קיים
+        payload = Utils.filter_none(raw_payload)
+
         headers = {"Authorization": f"Bearer {token}"}
         return self.put(f"{self.url}/{contact_id}", payload, headers=headers)
-
     def update_contact_patch(self, token, contact_id, json_payload):
         headers = {"Authorization": f"Bearer {token}"}
         return self.patch(f"{self.url}/{contact_id}", json_payload, headers=headers)
