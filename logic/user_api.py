@@ -42,3 +42,11 @@ class UserAPI(BaseAPI):
         """
         headers = {"Authorization": f"Bearer {token}"}
         return self.delete(f"{self.url}/me", headers=headers)
+
+    def update_user(self, token, update_data):
+        """
+        Updates user profile fields (firstName, lastName, etc.)
+        Route: PATCH /users/me
+        """
+        headers = {"Authorization": f"Bearer {token}"}
+        return self.patch(f"{self.url}/me", payload=update_data, headers=headers)
