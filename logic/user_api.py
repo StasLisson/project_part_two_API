@@ -8,9 +8,6 @@ class UserAPI(BaseAPI):
         self.base_url = base_url
         self.url = f"{self.base_url}/users"
 
-    def _get_headers(self, token):
-        return {"Authorization": f"Bearer {token}"}
-
     def login(self, email, password):
         payload = {
             "email": email,

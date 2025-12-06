@@ -25,3 +25,6 @@ class BaseAPI:
     def delete(self, url, headers=None):
         response = requests.delete(url, headers=headers, timeout=self.timeout)
         return ResponseWrapper(response)
+
+    def _get_headers(self, token):
+        return {"Authorization": f"Bearer {token}"}

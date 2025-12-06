@@ -1,30 +1,12 @@
-import unittest
-import time
 import uuid
-from logic.api_client import APIClient
+from tests.base_test import BaseTestCase
 
 
-class TestSystem(unittest.TestCase):
+class TestSystem(BaseTestCase):
 
     def setUp(self):
-        self.client = APIClient()
-        self.email = f"user_{uuid.uuid4()}@test.com"
-        self.password = "Password123!"
-        register_payload = {
-            "firstName": "System",
-            "lastName": "Tester",
-            "email": self.email,
-            "password": self.password
-        }
-        self.client.user.register(**register_payload)
-        self.token = self.client.user.login(self.email, self.password).data["token"]
-
-    def tearDown(self):
-        if hasattr(self, 'token') and self.token:
-            try:
-                self.client.user.delete_user(self.token)
-            except:
-                pass
+        super().setUp()
+        self.register_and_login(firstName="System", lastName="Tester")
 
     def test_API_028_Rapid_Requests_Rate_Limit(self):
         for _ in range(10):
@@ -72,7 +54,7 @@ class TestSystem(unittest.TestCase):
             "lastName": "Data"
         }
         contact_id = self.client.contact.add_contact(self.token, **contact_payload).data["_id"]
-        spy_email = f"spy_{int(time.time())}@test.com"
+        spy_email = f"spy_{uuid.uuid4()}@test.com"
         spy_payload = {
             "firstName": "Spy",
             "lastName": "User",
@@ -93,7 +75,7 @@ class TestSystem(unittest.TestCase):
         c_id = self.client.contact.add_contact(self.token, **contact_payload).data["_id"]
         self.client.user.delete_user(self.token)
         self.token = None
-        check_email = f"check_{int(time.time())}@test.com"
+        check_email = f"check_{uuid.uuid4()}@test.com"
         check_user_payload = {
             "firstName": "Check",
             "lastName": "Er",

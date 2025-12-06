@@ -1,30 +1,11 @@
-import unittest
-import uuid
-from logic.api_client import APIClient
+from tests.base_test import BaseTestCase
 
 
-class TestContacts(unittest.TestCase):
+class TestContacts(BaseTestCase):
 
     def setUp(self):
-        self.client = APIClient()
-        self.email = f"user_{uuid.uuid4()}@test.com"
-        self.password = "Password123!"
-        register_payload = {
-            "firstName": "Contact",
-            "lastName": "Tester",
-            "email": self.email,
-            "password": self.password
-        }
-        self.client.user.register(**register_payload)
-        login_res = self.client.user.login(self.email, self.password)
-        self.token = login_res.data["token"]
-
-    def tearDown(self):
-        if hasattr(self, 'token') and self.token:
-            try:
-                self.client.user.delete_user(self.token)
-            except:
-                pass
+        super().setUp()
+        self.register_and_login(firstName="Contact", lastName="Tester")
 
     def test_API_006_Add_Contact_Minimal_Trimming(self):
         payload = {
@@ -128,18 +109,21 @@ class TestContacts(unittest.TestCase):
         self.assertEqual(res.response_status_code, 400)
 
     def test_API_020_Get_Non_existent_Contact(self):
-        res = self.client.contact.get_contact(self.token, "60f1b5b5b5b5b5b5b5b5b5b5")
+        # DRY Fix: Using constant from BaseTestCase
+        res = self.client.contact.get_contact(self.token, self.FAKE_CONTACT_ID)
         self.assertEqual(res.response_status_code, 404)
 
     def test_API_021_Delete_Non_existent_Contact(self):
-        res = self.client.contact.delete_contact(self.token, "60f1b5b5b5b5b5b5b5b5b5b5")
+        # DRY Fix: Using constant from BaseTestCase
+        res = self.client.contact.delete_contact(self.token, self.FAKE_CONTACT_ID)
         self.assertEqual(res.response_status_code, 404)
 
     def test_API_022_Update_Non_existent_Contact(self):
         update_payload = {
             "firstName": "Ghost"
         }
-        res = self.client.contact.update_contact_patch(self.token, "60f1b5b5b5b5b5b5b5b5b5b5", **update_payload)
+        # DRY Fix: Using constant from BaseTestCase
+        res = self.client.contact.update_contact_patch(self.token, self.FAKE_CONTACT_ID, **update_payload)
         self.assertEqual(res.response_status_code, 404)
 
     def test_API_023_Add_Contact_Empty_Body(self):
