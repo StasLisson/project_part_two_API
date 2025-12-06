@@ -6,6 +6,10 @@ class BaseAPI:
     def __init__(self):
         self.timeout = 10
 
+    @staticmethod
+    def _get_headers(token):
+        return {"Authorization": f"Bearer {token}"}
+
     def get(self, url, headers=None):
         response = requests.get(url, headers=headers, timeout=self.timeout)
         return ResponseWrapper(response)
@@ -26,5 +30,3 @@ class BaseAPI:
         response = requests.delete(url, headers=headers, timeout=self.timeout)
         return ResponseWrapper(response)
 
-    def _get_headers(self, token):
-        return {"Authorization": f"Bearer {token}"}

@@ -26,6 +26,11 @@ class TestContacts(BaseTestCase):
         res = self.client.contact.add_contact(self.token, **payload)
         self.assertEqual(res.response_status_code, 201)
 
+        # Deep Assertion: Check that ALL fields were saved correctly
+        self.assertEqual(res.data["firstName"], payload["firstName"])
+        self.assertEqual(res.data["email"], payload["email"])
+        self.assertEqual(res.data["city"], payload["city"])
+
     def test_API_008_Get_All_Contacts(self):
         c1_payload = {
             "firstName": "C1",
@@ -37,7 +42,9 @@ class TestContacts(BaseTestCase):
             "lastName": "List"
         }
         self.client.contact.add_contact(self.token, **c2_payload)
+
         res = self.client.contact.get_all_contacts(self.token)
+
         self.assertEqual(res.response_status_code, 200)
         self.assertGreaterEqual(len(res.data), 2)
 
@@ -47,8 +54,12 @@ class TestContacts(BaseTestCase):
             "lastName": "One"
         }
         contact = self.client.contact.add_contact(self.token, **payload).data
+
         res = self.client.contact.get_contact(self.token, contact["_id"])
+
         self.assertEqual(res.response_status_code, 200)
+        self.assertEqual(res.data["_id"], contact["_id"])
+        self.assertEqual(res.data["firstName"], "Target")
 
     def test_API_010_Update_Contact_PUT(self):
         initial_payload = {
@@ -56,12 +67,17 @@ class TestContacts(BaseTestCase):
             "lastName": "Name"
         }
         c_id = self.client.contact.add_contact(self.token, **initial_payload).data["_id"]
+
         update_payload = {
             "firstName": "New",
             "lastName": "Last"
         }
         res = self.client.contact.update_contact_put(self.token, c_id, **update_payload)
+
         self.assertEqual(res.response_status_code, 200)
+        # Verify the update actually happened
+        self.assertEqual(res.data["firstName"], "New")
+        self.assertEqual(res.data["lastName"], "Last")
 
     def test_API_011_Update_Contact_PATCH(self):
         initial_payload = {
@@ -69,11 +85,17 @@ class TestContacts(BaseTestCase):
             "lastName": "Me"
         }
         c_id = self.client.contact.add_contact(self.token, **initial_payload).data["_id"]
+
         patch_payload = {
             "email": "new@mail.com"
         }
         res = self.client.contact.update_contact_patch(self.token, c_id, **patch_payload)
+
         self.assertEqual(res.response_status_code, 200)
+        # Verify specific field update
+        self.assertEqual(res.data["email"], "new@mail.com")
+        # Verify other fields remained untouched
+        self.assertEqual(res.data["firstName"], "Patch")
 
     def test_API_012_Delete_Contact(self):
         payload = {
@@ -81,8 +103,13 @@ class TestContacts(BaseTestCase):
             "lastName": "Me"
         }
         c_id = self.client.contact.add_contact(self.token, **payload).data["_id"]
+
         res = self.client.contact.delete_contact(self.token, c_id)
         self.assertEqual(res.response_status_code, 200)
+
+        # Verify deletion really happened
+        check_res = self.client.contact.get_contact(self.token, c_id)
+        self.assertEqual(check_res.response_status_code, 404)
 
     def test_API_016_Get_Contacts_No_Token(self):
         res = self.client.contact.get_all_contacts("")
@@ -109,12 +136,10 @@ class TestContacts(BaseTestCase):
         self.assertEqual(res.response_status_code, 400)
 
     def test_API_020_Get_Non_existent_Contact(self):
-        # DRY Fix: Using constant from BaseTestCase
         res = self.client.contact.get_contact(self.token, self.FAKE_CONTACT_ID)
         self.assertEqual(res.response_status_code, 404)
 
     def test_API_021_Delete_Non_existent_Contact(self):
-        # DRY Fix: Using constant from BaseTestCase
         res = self.client.contact.delete_contact(self.token, self.FAKE_CONTACT_ID)
         self.assertEqual(res.response_status_code, 404)
 
@@ -122,7 +147,6 @@ class TestContacts(BaseTestCase):
         update_payload = {
             "firstName": "Ghost"
         }
-        # DRY Fix: Using constant from BaseTestCase
         res = self.client.contact.update_contact_patch(self.token, self.FAKE_CONTACT_ID, **update_payload)
         self.assertEqual(res.response_status_code, 404)
 
@@ -162,3 +186,28 @@ class TestContacts(BaseTestCase):
         c_id = self.client.contact.add_contact(self.token, **initial_payload).data["_id"]
         res = self.client.contact.update_contact_patch(self.token, c_id)
         self.assertEqual(res.response_status_code, 200)
+
+    def test_API_036_Fuzzing_Multi_Language_And_Chars(self):
+        fuzz_cases = [
+            ("Specific Symbols", "-,'"),
+            ("Numbers Only", "1234567890"),
+            ("Chinese", "你好世界"),
+            ("Emojis", "😀😎🚀🔥"),
+            ("Hebrew", "בדיקות אוטומציה"),
+            ("Russian", "Привет мир"),
+            ("Mixed Complex", "Stas-123-בדיקה-🚀")
+        ]
+
+        for case_name, input_value in fuzz_cases:
+            with self.subTest(case=case_name, input=input_value):
+                payload = {
+                    "firstName": input_value,
+                    "lastName": "GlobalTest"
+                }
+
+                res = self.client.contact.add_contact(self.token, **payload)
+
+                self.assertNotEqual(res.response_status_code, 500)
+
+                if res.response_status_code == 201:
+                    self.assertEqual(res.data["firstName"], input_value)
