@@ -10,7 +10,7 @@ class ResponseWrapper:
     def response_json(self):
         try:
             return self.response.json()
-        except Exception:
+        except ValueError:
             return {}
 
     @property

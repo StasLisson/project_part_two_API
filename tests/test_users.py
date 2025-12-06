@@ -11,8 +11,13 @@ class TestUsers(BaseTestCase):
             "password": self.password
         }
         res = self.client.user.register(**user_payload)
+
         self.assertEqual(res.response_status_code, 201)
         self.assertIn("token", res.data)
+        # Deep Assertion: Verify user data is returned correctly
+        self.assertEqual(res.data["user"]["firstName"], user_payload["firstName"])
+        self.assertEqual(res.data["user"]["email"], user_payload["email"])
+
         self.token = res.data["token"]
 
     def test_API_002_Login_with_valid_user(self):
@@ -23,14 +28,26 @@ class TestUsers(BaseTestCase):
             "password": self.password
         }
         self.client.user.register(**register_payload)
+
         res = self.client.user.login(self.email, self.password)
+
         self.assertEqual(res.response_status_code, 200)
+        self.assertIn("token", res.data)
+        # Deep Assertion: Verify login response contains user info
+        self.assertEqual(res.data["user"]["email"], self.email)
+
         self.token = res.data["token"]
 
     def test_API_003_Get_User_Profile(self):
         self.register_and_login(firstName="Stas", lastName="Profile")
+
         res = self.client.user.get_current_user(self.token)
+
         self.assertEqual(res.response_status_code, 200)
+        # Deep Assertion: Verify profile data integrity
+        self.assertEqual(res.data["firstName"], "Stas")
+        self.assertEqual(res.data["lastName"], "Profile")
+        self.assertEqual(res.data["email"], self.email)
 
     def test_API_004_Logout_User(self):
         self.register_and_login(firstName="Stas", lastName="Logout")
@@ -43,6 +60,7 @@ class TestUsers(BaseTestCase):
             "firstName": "Stas Updated"
         }
         res = self.client.user.update_user(self.token, **update_payload)
+
         self.assertEqual(res.response_status_code, 200)
         self.assertEqual(res.data["firstName"], "Stas Updated")
 
