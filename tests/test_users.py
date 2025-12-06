@@ -1,7 +1,7 @@
 import unittest
-import time
-from logic.api_client import APIClient
 import uuid
+from logic.api_client import APIClient
+
 
 class TestUsers(unittest.TestCase):
 
@@ -11,59 +11,94 @@ class TestUsers(unittest.TestCase):
         self.password = "Password123!"
 
     def tearDown(self):
-        # מחיקה רק אם יש טוקן תקין (כלומר אם התחברנו בהצלחה)
         if hasattr(self, 'token') and self.token:
             try:
                 self.client.user.delete_user(self.token)
             except:
                 pass
 
-    # --- Sanity & Functional ---
     def test_API_001_Register_a_new_user(self):
-        res = self.client.user.register("Stas", "Lisson", self.email, self.password)
+        user_payload = {
+            "firstName": "Stas",
+            "lastName": "Lisson",
+            "email": self.email,
+            "password": self.password
+        }
+        res = self.client.user.register(**user_payload)
         self.assertEqual(res.response_status_code, 201)
         self.assertIn("token", res.data)
 
     def test_API_002_Login_with_valid_user(self):
-        self.client.user.register("Stas", "Lisson", self.email, self.password)
+        register_payload = {
+            "firstName": "Stas",
+            "lastName": "Lisson",
+            "email": self.email,
+            "password": self.password
+        }
+        self.client.user.register(**register_payload)
         res = self.client.user.login(self.email, self.password)
         self.assertEqual(res.response_status_code, 200)
-        self.token = res.data["token"] # For teardown
+        self.token = res.data["token"]
 
     def test_API_003_Get_User_Profile(self):
-        self.client.user.register("Stas", "Profile", self.email, self.password)
+        register_payload = {
+            "firstName": "Stas",
+            "lastName": "Profile",
+            "email": self.email,
+            "password": self.password
+        }
+        self.client.user.register(**register_payload)
         self.token = self.client.user.login(self.email, self.password).data["token"]
         res = self.client.user.get_current_user(self.token)
         self.assertEqual(res.response_status_code, 200)
 
     def test_API_004_Logout_User(self):
-        self.client.user.register("Stas", "Logout", self.email, self.password)
+        register_payload = {
+            "firstName": "Stas",
+            "lastName": "Logout",
+            "email": self.email,
+            "password": self.password
+        }
+        self.client.user.register(**register_payload)
         self.token = self.client.user.login(self.email, self.password).data["token"]
         res = self.client.user.logout(self.token)
         self.assertEqual(res.response_status_code, 200)
 
     def test_API_005_Update_User_Profile(self):
-        self.client.user.register("Stas", "Original", self.email, self.password)
+        register_payload = {
+            "firstName": "Stas",
+            "lastName": "Original",
+            "email": self.email,
+            "password": self.password
+        }
+        self.client.user.register(**register_payload)
         self.token = self.client.user.login(self.email, self.password).data["token"]
-        res = self.client.user.update_user(self.token, {"firstName": "Stas Updated"})
+        update_payload = {
+            "firstName": "Stas Updated"
+        }
+        res = self.client.user.update_user(self.token, **update_payload)
         self.assertEqual(res.response_status_code, 200)
         self.assertEqual(res.data["firstName"], "Stas Updated")
 
-    def test_API_029_Delete_User_Data(self):
-        self.client.user.register("To", "Delete", self.email, self.password)
-        self.token = self.client.user.login(self.email, self.password).data["token"]
-        res = self.client.user.delete_user(self.token)
-        self.assertEqual(res.response_status_code, 200)
-        self.token = None # Prevent teardown error
-
-    # --- Negative / Error Handling ---
     def test_API_013_Register_User_Already_Exists(self):
-        self.client.user.register("Stas", "Exist", self.email, "123")
-        res = self.client.user.register("Stas", "Exist", self.email, "123")
+        user_payload = {
+            "firstName": "Stas",
+            "lastName": "Exist",
+            "email": self.email,
+            "password": "123"
+        }
+        self.client.user.register(**user_payload)
+        res = self.client.user.register(**user_payload)
         self.assertEqual(res.response_status_code, 400)
 
     def test_API_014_Login_Wrong_Password(self):
-        self.client.user.register("Stas", "Pass", self.email, self.password)
+        register_payload = {
+            "firstName": "Stas",
+            "lastName": "Pass",
+            "email": self.email,
+            "password": self.password
+        }
+        self.client.user.register(**register_payload)
         res = self.client.user.login(self.email, "WrongPass")
         self.assertEqual(res.response_status_code, 401)
 
@@ -71,8 +106,27 @@ class TestUsers(unittest.TestCase):
         res = self.client.user.login("fake_email_999@fake.com", "123")
         self.assertEqual(res.response_status_code, 401)
 
+    def test_API_029_Delete_User_Data(self):
+        register_payload = {
+            "firstName": "To",
+            "lastName": "Delete",
+            "email": self.email,
+            "password": self.password
+        }
+        self.client.user.register(**register_payload)
+        self.token = self.client.user.login(self.email, self.password).data["token"]
+        res = self.client.user.delete_user(self.token)
+        self.assertEqual(res.response_status_code, 200)
+        self.token = None
+
     def test_API_030_Login_with_Deleted_User(self):
-        self.client.user.register("Zombie", "User", self.email, self.password)
+        register_payload = {
+            "firstName": "Zombie",
+            "lastName": "User",
+            "email": self.email,
+            "password": self.password
+        }
+        self.client.user.register(**register_payload)
         token = self.client.user.login(self.email, self.password).data["token"]
         self.client.user.delete_user(token)
         res = self.client.user.login(self.email, self.password)
