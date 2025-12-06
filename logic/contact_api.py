@@ -8,9 +8,6 @@ class ContactAPI(BaseAPI):
         self.base_url = base_url
         self.url = f"{self.base_url}/contacts"
 
-    def _get_headers(self, token):
-        return {"Authorization": f"Bearer {token}"}
-
     def add_contact(self, token, **kwargs):
         payload = Utils.filter_none(kwargs)
         return self.post(self.url, payload, headers=self._get_headers(token))

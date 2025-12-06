@@ -1,21 +1,7 @@
-import unittest
-import uuid
-from logic.api_client import APIClient
+from tests.base_test import BaseTestCase
 
 
-class TestUsers(unittest.TestCase):
-
-    def setUp(self):
-        self.client = APIClient()
-        self.email = f"user_{uuid.uuid4()}@test.com"
-        self.password = "Password123!"
-
-    def tearDown(self):
-        if hasattr(self, 'token') and self.token:
-            try:
-                self.client.user.delete_user(self.token)
-            except:
-                pass
+class TestUsers(BaseTestCase):
 
     def test_API_001_Register_a_new_user(self):
         user_payload = {
@@ -27,6 +13,7 @@ class TestUsers(unittest.TestCase):
         res = self.client.user.register(**user_payload)
         self.assertEqual(res.response_status_code, 201)
         self.assertIn("token", res.data)
+        self.token = res.data["token"]
 
     def test_API_002_Login_with_valid_user(self):
         register_payload = {
@@ -41,38 +28,17 @@ class TestUsers(unittest.TestCase):
         self.token = res.data["token"]
 
     def test_API_003_Get_User_Profile(self):
-        register_payload = {
-            "firstName": "Stas",
-            "lastName": "Profile",
-            "email": self.email,
-            "password": self.password
-        }
-        self.client.user.register(**register_payload)
-        self.token = self.client.user.login(self.email, self.password).data["token"]
+        self.register_and_login(firstName="Stas", lastName="Profile")
         res = self.client.user.get_current_user(self.token)
         self.assertEqual(res.response_status_code, 200)
 
     def test_API_004_Logout_User(self):
-        register_payload = {
-            "firstName": "Stas",
-            "lastName": "Logout",
-            "email": self.email,
-            "password": self.password
-        }
-        self.client.user.register(**register_payload)
-        self.token = self.client.user.login(self.email, self.password).data["token"]
+        self.register_and_login(firstName="Stas", lastName="Logout")
         res = self.client.user.logout(self.token)
         self.assertEqual(res.response_status_code, 200)
 
     def test_API_005_Update_User_Profile(self):
-        register_payload = {
-            "firstName": "Stas",
-            "lastName": "Original",
-            "email": self.email,
-            "password": self.password
-        }
-        self.client.user.register(**register_payload)
-        self.token = self.client.user.login(self.email, self.password).data["token"]
+        self.register_and_login(firstName="Stas", lastName="Original")
         update_payload = {
             "firstName": "Stas Updated"
         }
@@ -107,27 +73,13 @@ class TestUsers(unittest.TestCase):
         self.assertEqual(res.response_status_code, 401)
 
     def test_API_029_Delete_User_Data(self):
-        register_payload = {
-            "firstName": "To",
-            "lastName": "Delete",
-            "email": self.email,
-            "password": self.password
-        }
-        self.client.user.register(**register_payload)
-        self.token = self.client.user.login(self.email, self.password).data["token"]
+        self.register_and_login(firstName="To", lastName="Delete")
         res = self.client.user.delete_user(self.token)
         self.assertEqual(res.response_status_code, 200)
         self.token = None
 
     def test_API_030_Login_with_Deleted_User(self):
-        register_payload = {
-            "firstName": "Zombie",
-            "lastName": "User",
-            "email": self.email,
-            "password": self.password
-        }
-        self.client.user.register(**register_payload)
-        token = self.client.user.login(self.email, self.password).data["token"]
-        self.client.user.delete_user(token)
+        self.register_and_login(firstName="Zombie", lastName="User")
+        self.client.user.delete_user(self.token)
         res = self.client.user.login(self.email, self.password)
         self.assertEqual(res.response_status_code, 401)
