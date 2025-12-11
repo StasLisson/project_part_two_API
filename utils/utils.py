@@ -1,5 +1,6 @@
 import random
 import string
+import time
 from faker import Faker
 
 fake = Faker()
@@ -11,11 +12,12 @@ class Utils:
 
     @staticmethod
     def generate_email():
-        return fake.unique.email()
+        timestamp = time.time_ns()
+        return f"user_{timestamp}_{fake.email()}"
 
     @staticmethod
     def generate_password():
-        return fake.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)
+        return fake.password(length=10, special_chars=False, digits=True, upper_case=True, lower_case=True)
 
     @staticmethod
     def generate_first_name():

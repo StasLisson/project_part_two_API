@@ -2,6 +2,7 @@ import unittest
 from logic.api_client import APIClient
 from utils.utils import Utils
 
+
 class BaseTestCase(unittest.TestCase):
     FAKE_CONTACT_ID = "60f1b5b5b5b5b5b5b5b5b5b5"
 
@@ -29,11 +30,16 @@ class BaseTestCase(unittest.TestCase):
         }
         payload.update(kwargs)
 
-        self.client.user.register(**payload)
+        register_res = self.client.user.register(**payload)
+
+        if register_res.response_status_code != 201:
+            raise Exception(
+                f"Setup Failed! Register failed. Status: {register_res.response_status_code}, Body: {register_res.data}")
+
         login_res = self.client.user.login(payload["email"], payload["password"])
 
         if login_res.response_status_code != 200:
-             raise Exception(f"Setup Failed! Could not login. Status: {login_res.response_status_code}")
+            raise Exception(f"Setup Failed! Could not login. Status: {login_res.response_status_code}")
 
         self.token = login_res.data["token"]
         return self.token
