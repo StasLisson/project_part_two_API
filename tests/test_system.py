@@ -1,6 +1,6 @@
-import uuid
 import concurrent.futures
 from tests.base_test import BaseTestCase
+from utils.utils import Utils
 
 
 class TestSystem(BaseTestCase):
@@ -21,7 +21,6 @@ class TestSystem(BaseTestCase):
         }
         c_id = self.client.contact.add_contact(self.token, **contact_payload).data["_id"]
 
-        # Verify creation
         self.assertEqual(self.client.contact.get_contact(self.token, c_id).response_status_code, 200)
 
         update_payload = {
@@ -31,7 +30,6 @@ class TestSystem(BaseTestCase):
 
         self.client.contact.delete_contact(self.token, c_id)
 
-        # Verify deletion
         self.assertEqual(self.client.contact.get_contact(self.token, c_id).response_status_code, 404)
 
     def test_API_032_Data_Persistence_Logout_Login(self):
@@ -43,11 +41,9 @@ class TestSystem(BaseTestCase):
 
         self.client.user.logout(self.token)
 
-        # Re-login with same credentials
         new_token = self.client.user.login(self.email, self.password).data["token"]
 
         res = self.client.contact.get_all_contacts(new_token)
-        # Deep Assertion: Verify data survived the logout
         self.assertTrue(any(c['firstName'] == 'Persist' for c in res.data))
 
     def test_API_033_Bulk_Creation_Verification(self):
@@ -68,7 +64,7 @@ class TestSystem(BaseTestCase):
         }
         contact_id = self.client.contact.add_contact(self.token, **contact_payload).data["_id"]
 
-        spy_email = f"spy_{uuid.uuid4()}@test.com"
+        spy_email = Utils.generate_email()
         spy_payload = {
             "firstName": "Spy",
             "lastName": "User",
@@ -78,7 +74,6 @@ class TestSystem(BaseTestCase):
         self.client.user.register(**spy_payload)
         token_spy = self.client.user.login(spy_email, "Password123!").data["token"]
 
-        # Act: Spy tries to access victim's contact
         res = self.client.contact.get_contact(token_spy, contact_id)
 
         self.assertIn(res.response_status_code, [403, 404])
@@ -91,12 +86,11 @@ class TestSystem(BaseTestCase):
         }
         c_id = self.client.contact.add_contact(self.token, **contact_payload).data["_id"]
 
-        # Delete the main user
         self.client.user.delete_user(self.token)
-        self.token = None  # Prevent teardown error
+        self.token = None
 
-        # Create a checker user
-        check_email = f"check_{uuid.uuid4()}@test.com"
+
+        check_email = Utils.generate_email()
         check_user_payload = {
             "firstName": "Check",
             "lastName": "Er",
@@ -106,19 +100,12 @@ class TestSystem(BaseTestCase):
         self.client.user.register(**check_user_payload)
         token_check = self.client.user.login(check_email, "Password123!").data["token"]
 
-        # Verify contact is gone for everyone
         res = self.client.contact.get_contact(token_check, c_id)
         self.assertEqual(res.response_status_code, 404)
 
         self.client.user.delete_user(token_check)
 
     def test_API_037_Concurrency_Starvation(self):
-        """
-        Concurrency Test:
-        Sends 20 requests at the EXACT same time using threads.
-        Goal: Verify DB doesn't lock up and Server doesn't crash (500).
-        """
-
         def send_single_request():
             return self.client.contact.get_all_contacts(self.token)
 

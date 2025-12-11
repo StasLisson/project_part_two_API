@@ -1,7 +1,7 @@
 import json
 import os
 
-
+#one source of the URL, comes from here
 class ConfigProvider:
     @staticmethod
     def load_config():

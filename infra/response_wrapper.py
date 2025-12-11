@@ -11,7 +11,7 @@ class ResponseWrapper:
         try:
             return self.response.json()
         except ValueError:
-            return {}
+            return {"info": "Response body is empty or not a valid JSON"}
 
     @property
     def data(self):

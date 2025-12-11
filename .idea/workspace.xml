@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0649fe8f-002c-4bc2-a085-5577e88d29ef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infra/base_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/infra/base_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/config_provider.py" beforeDir="false" afterPath="$PROJECT_DIR$/infra/config_provider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infra/response_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/infra/response_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/api_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/api_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/base_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/base_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_contacts.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_contacts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_system.py" afterDir="false" />
@@ -70,7 +71,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "phase-7-testing-new-things",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Admin/Desktop/GitHub/project_part_two_API",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"

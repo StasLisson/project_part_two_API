@@ -26,7 +26,6 @@ class TestContacts(BaseTestCase):
         res = self.client.contact.add_contact(self.token, **payload)
         self.assertEqual(res.response_status_code, 201)
 
-        # Deep Assertion: Check that ALL fields were saved correctly
         self.assertEqual(res.data["firstName"], payload["firstName"])
         self.assertEqual(res.data["email"], payload["email"])
         self.assertEqual(res.data["city"], payload["city"])
@@ -75,7 +74,6 @@ class TestContacts(BaseTestCase):
         res = self.client.contact.update_contact_put(self.token, c_id, **update_payload)
 
         self.assertEqual(res.response_status_code, 200)
-        # Verify the update actually happened
         self.assertEqual(res.data["firstName"], "New")
         self.assertEqual(res.data["lastName"], "Last")
 
@@ -92,9 +90,7 @@ class TestContacts(BaseTestCase):
         res = self.client.contact.update_contact_patch(self.token, c_id, **patch_payload)
 
         self.assertEqual(res.response_status_code, 200)
-        # Verify specific field update
         self.assertEqual(res.data["email"], "new@mail.com")
-        # Verify other fields remained untouched
         self.assertEqual(res.data["firstName"], "Patch")
 
     def test_API_012_Delete_Contact(self):
@@ -107,7 +103,6 @@ class TestContacts(BaseTestCase):
         res = self.client.contact.delete_contact(self.token, c_id)
         self.assertEqual(res.response_status_code, 200)
 
-        # Verify deletion really happened
         check_res = self.client.contact.get_contact(self.token, c_id)
         self.assertEqual(check_res.response_status_code, 404)
 
